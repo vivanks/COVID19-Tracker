@@ -250,7 +250,9 @@
     title: 'Daily hike in COVID\'19 cases for last 30 days' 
   };
 
-  Plotly.newPlot('myDiv', data, layout);
+  var config = {responsive: true}
+
+  Plotly.newPlot('myDiv', data, layout, config);
   </script>
 
 
