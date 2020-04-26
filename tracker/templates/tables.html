@@ -91,11 +91,16 @@
 
         </nav>
         <!-- End of Topbar -->
+        <div class="container-fluid">
+          <h1 class="h3 mb-2 text-gray-800">Covid19 cases of India</h1>
+          <div id="myDiv" class="myDiv"></div>
+        </div>
 
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
           <!-- Page Heading -->
+          <br><br>
           <h1 class="h3 mb-2 text-gray-800">Indian Demography for COVID'19</h1>
           
 
@@ -144,6 +149,11 @@
         </div>
         <!-- /.container-fluid -->
 
+        <div class="container-fluid">
+          <h1 class="h3 mb-2 text-gray-800">Covid19 cases of India</h1>
+          <div id="myDiv1" class="myDiv1"></div>
+        </div>
+
       </div>
       <!-- End of Main Content -->
 
@@ -185,6 +195,64 @@
 
   <!-- Page level custom scripts -->
   <script src="js/demo/datatables-demo.js"></script>
+      <!-- D3.js -->
+    <!-- Latest compiled and minified plotly.js JavaScript -->
+<script src="https://cdn.plot.ly/plotly-latest.min.js" charset="utf-8"></script>
+
+<!-- OR use a specific plotly.js release (e.g. version 1.52.3) -->
+<script src="https://cdn.plot.ly/plotly-1.52.3.min.js" charset="utf-8"></script>
+
+<!-- OR an un-minified version is also available -->
+<script src="https://cdn.plot.ly/plotly-latest.js" charset="utf-8"></script>
+
+
+  <script type="text/javascript">
+    var trace1 = {
+    x: {{date_json|tojson}},
+    y: {{daily_confirmed_json|tojson}},
+    mode: 'lines+markers',
+    name : "Daily Confirmed",
+    marker: {
+      color: '#4e73df',
+      size: 12
+    }
+  };
+
+  var trace2 = {
+    x: {{date_json|tojson}},
+    y: {{daily_deceased_json|tojson}},
+    mode: 'lines+markers',
+    name : "Daily Deceased",
+    line: {
+      color: 'red',
+      width: 3
+    }
+  };
+
+  var trace3 = {
+    x: {{date_json|tojson}},
+    y: {{daily_recovered_json|tojson}},
+    mode: 'lines+markers',
+    name : "Daily Recovered",
+    marker: {
+      color: 'rgb(0, 204, 150)',
+      size: 8
+    },
+    line: {
+      color: 'rgb(128, 0, 128)',
+      width: 1
+    }
+  };
+
+  var data = [trace1,trace3,trace2];
+
+  var layout = {
+    title: 'Daily hike in COVID\'19 cases for last 30 days' 
+  };
+
+  Plotly.newPlot('myDiv', data, layout);
+  </script>
+
 
 </body>
 

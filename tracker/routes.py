@@ -24,12 +24,6 @@ def index():
 	time = time.replace(tzinfo = tzutc())
 	now_asia = time.astimezone(timezone('Asia/Kolkata'))
 	
-
-	wtc = world_data['world_total']['total_cases']
-	wnc = world_data['world_total']['new_cases']
-	wdc = world_data['world_total']['total_deaths']
-
-	
 	
 	country_stats = {}
 	for i in world_data['countries_stat']:
@@ -57,9 +51,21 @@ def india():
 
 	india_data = cd.getIndia()
 
+
 	statewise = india_data['state_wise']
 
+	date_json,daily_confirmed_json,daily_deceased_json,daily_recovered_json,total_confirmed_json,total_deceased_json,total_recovered_json=cd.getTimline()
 
-	return render_template('tables.html',statewise=statewise)
+
+	return render_template('tables.html',statewise=statewise,
+				date_json=date_json[-30:],
+				daily_confirmed_json=daily_confirmed_json[-30:],
+				daily_deceased_json=daily_deceased_json[-30:],
+				daily_recovered_json=daily_recovered_json,
+				total_confirmed_json=total_confirmed_json,
+				total_deceased_json=total_deceased_json,
+				total_recovered_json=total_recovered_json
+
+				)
 
 

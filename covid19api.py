@@ -6,25 +6,31 @@ from datetime import datetime
 import time
 import json
 import plotly
+from flask import jsonify
 
 class Covid19Data:
 
 	def __init__(self):
-		headers = {
+		self.headers = {
 				    'x-rapidapi-host': "corona-virus-world-and-india-data.p.rapidapi.com",
 				    'x-rapidapi-key': "95f7dcf64bmshae89e3e043a70c4p134474jsn00b8704e368c"
 				  }
 
-		world_url = "https://corona-virus-world-and-india-data.p.rapidapi.com/api"
+		self.world_url = "https://corona-virus-world-and-india-data.p.rapidapi.com/api"
 
-		self.world_response = requests.request("GET", world_url, headers=headers).json()
+		self.world_response = requests.request("GET", self.world_url, headers=self.headers).json()
 
 		time.sleep(1)
 
-		india_url = "https://corona-virus-world-and-india-data.p.rapidapi.com/api_india"
+		self.india_url = "https://corona-virus-world-and-india-data.p.rapidapi.com/api_india"
 
-		self.india_response = requests.request("GET", india_url, headers=headers).json()
+		self.india_response = requests.request("GET", self.india_url, headers=self.headers).json()
 
+		time.sleep(1)
+
+		self.india_timeline = "https://corona-virus-world-and-india-data.p.rapidapi.com/api_india_timeline"
+
+		self.itr = requests.request("GET", self.india_timeline, headers=self.headers).json()
 
 	def getWorld(self):
 		return self.world_response
@@ -61,6 +67,30 @@ class Covid19Data:
 
 
 		return labels,values_india,values_world
+
+	def getTimline(self):
+		
+		self.df_hist = pd.DataFrame.from_records(self.itr)
+
+		date_json = self.df_hist['date'].tolist()
+		
+
+		daily_confirmed_json = self.df_hist['dailyconfirmed'].apply(pd.to_numeric).tolist()
+		
+
+		daily_deceased_json = self.df_hist['dailydeceased'].apply(pd.to_numeric).tolist()
+
+		daily_recovered_json = self.df_hist['dailyrecovered'].apply(pd.to_numeric).tolist()
+
+		total_confirmed_json = self.df_hist['totalconfirmed'].apply(pd.to_numeric).tolist()
+		
+
+		total_deceased_json = self.df_hist['totaldeceased'].apply(pd.to_numeric).tolist()
+
+		total_recovered_json = self.df_hist['totalrecovered'].apply(pd.to_numeric).tolist()
+		
+
+		return date_json,daily_confirmed_json,daily_deceased_json,daily_recovered_json,total_confirmed_json,total_deceased_json,total_recovered_json
 
 
 
