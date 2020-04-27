@@ -30,20 +30,28 @@
   <!-- Page Wrapper -->
   <div id="wrapper">
 
-    <!-- Sidebar -->
-    <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+    
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
 
-      <!-- Sidebar - Brand -->
-      <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-        
-        <div class="sidebar-brand-text mx-3">COVID'19<sup>TRACKER</sup></div>
-      </a>
+      <!-- Main Content -->
+      <div id="content">
 
-      <!-- Divider -->
-      <hr class="sidebar-divider my-0">
+        <!-- Topbar -->
+        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow" style="
+    background-color: #4e73df  !important;
+">
 
-      <!-- Nav Item - Dashboard -->
-      <li class="nav-item active">
+         
+
+          
+
+          <!-- Topbar Navbar -->
+          <ul class="navbar-nav ml-auto">
+
+            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+            
+<li class="nav-item active">
         <a class="nav-link" href="{{ url_for('index')}}">
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
@@ -53,41 +61,11 @@
           <i class="fas fa-fw fa-home"></i>
           <span>India</span></a>
       </li>
-      <!-- Sidebar Toggler (Sidebar) -->
-      <div class="text-center d-none d-md-inline">
-        <button class="rounded-circle border-0" id="sidebarToggle"></button>
-      </div>
-
-    </ul>
-    <!-- End of Sidebar -->
-
-    <!-- Content Wrapper -->
-    <div id="content-wrapper" class="d-flex flex-column">
-
-      <!-- Main Content -->
-      <div id="content">
-
-        <!-- Topbar -->
-        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-
-          <!-- Sidebar Toggle (Topbar) -->
-          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-            <i class="fa fa-bars"></i>
-          </button>
-
-          
-
-          <!-- Topbar Navbar -->
-          <ul class="navbar-nav ml-auto">
-
-            <!-- Nav Item - Search Dropdown (Visible Only XS) -->
-            
-
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
-              <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle" href="https://www.github.com/vivanks" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Vivank Sharma</span>
-                <img class="img-profile rounded-circle" src="https://source.unsplash.com/QAB-WJcbgJk/60x60">
+                <img class="img-profile rounded-circle" src="https://avatars2.githubusercontent.com/u/30744819?s=460&u=6a3b4d82e632eec940a9f499b013e5ac14f0fe1b&v=4">
               </a>
               
             </li>
@@ -187,7 +165,7 @@
           <!-- Content Row -->
           <!-- Content Row -->
           <h2 class="h3 mb-0 text-gray-800">India</h2>
-          <div class="row">
+          <div class="row" style="padding-bottom: 2em">
 
             <!-- Earnings (Monthly) Card Example -->
             <div class="col-xl-3 col-md-6 mb-4">
@@ -258,7 +236,13 @@
                 </div>
               </div>
             </div>
-
+<a href="{{ url_for('india')}}" class="btn btn-primary btn-icon-split" style="margin: auto;">
+                    <span class="icon text-white-50">
+                      <i class="fas fa-flag"></i>
+                    </span>
+                    <span class="text">More info for India</span>
+                  </a>
+                  <br><br>
 
           </div>
           <div class="row">
