@@ -8,7 +8,7 @@ The COVID19 tracker is hosted on heroku and can be accessed [here](http://vivank
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
-### Prerequisites
+## Prerequisites
 
 For running the project you will be needing Python 3 and Flask installed in your system with an active internet connection for rest-api to work.
 
@@ -16,7 +16,7 @@ For running the project you will be needing Python 3 and Flask installed in your
 python app.py
 ```
 
-### Installing
+## Installing
 
 Create new env using
 
@@ -39,6 +39,9 @@ You can deploy using heroku by following [this](https://devcenter.heroku.com/cat
 * [Flask](https://flask.palletsprojects.com/en/1.1.x/) - The web framework used
 * [Rapid API](https://rapidapi.com/spamakashrajtech/api/corona-virus-world-and-india-data) - Rest API manager used to get data.
 
+## Contributing
+
+COVID19-Tracker is very seriously a work in progress. Any help, interaction, and input is welcome and encouraged. Feel free to make any contributions, whether it be typos, documentation, new features, bug fixes, etc. Suggest features and functionality, open PRs and issues, or tackle any of the open issues.
 
 ## License
 
