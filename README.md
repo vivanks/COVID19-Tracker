@@ -1,6 +1,12 @@
 # COVID19 Tracker
 
-A COVID19 cases tracker of World and India.
+The COVID-19 tracker is a web application based on live tracking of COVID-19 stats all over the world.
+
+It used this [API](https://rapidapi.com/spamakashrajtech/api/corona-virus-world-and-india-data) to extract the number of cases confirmed, recovered and  number of deaths for each country in the world and for each state of India. 
+
+The website has a feature of live update and displays the most recent stats.
+
+It also uses plotly library from Python to visualise the rise in number of cases with each passing day.
 
 The COVID19 tracker is hosted on heroku and can be accessed [here](http://vivanks-covid19.herokuapp.com/)
 
