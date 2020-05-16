@@ -10,7 +10,7 @@ format = "%Y-%m-%d %H:%M:%S"
 format1 = "%H:%M %p /\\ %d-%m-%Y"
 from dateutil.tz import *
 
-
+#Route for Home page
 @app.route('/')
 @app.route('/index')
 def index():
@@ -22,9 +22,11 @@ def index():
 	time = world_data['statistic_taken_at']
 	time = datetime.strptime(time,format)
 	time = time.replace(tzinfo = tzutc())
+
+	#Converting date to IST timezone
 	now_asia = time.astimezone(timezone('Asia/Kolkata'))
 	
-	
+	#Storing country stats
 	country_stats = {}
 	for i in world_data['countries_stat']:
 		if i['country_name'] == 'India':
@@ -44,6 +46,7 @@ def index():
 							time = now_asia.strftime(format1)
 												)
 
+#Page for statistics of India country
 @app.route('/india')
 def india():
 
